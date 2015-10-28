@@ -1,0 +1,4 @@
+---
+- name: ensure haproxy apt repo exists
+  sudo: yes
+  apt_repository: repo='ppa:vbernat/haproxy-1.5'

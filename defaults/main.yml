@@ -1,0 +1,20 @@
+haproxy_global_log:
+  - /dev/log    local0
+  - /dev/log    local1 notice
+haproxy_global_chroot: /var/lib/haproxy
+haproxy_global_stats_socket: /run/haproxy/admin.sock mode 660 level admin
+haproxy_global_stats_timeoout: 30s
+haproxy_global_user: haproxy
+haproxy_global_group: haproxy
+haproxy_global_daemon: True
+haproxy_global_extras: []
+
+haproxy_defaults_log: global
+haproxy_defaults_mode: http
+haproxy_defaults_timeout_connect: 5000
+haproxy_defaults_timeout_client: 50000
+haproxy_defaults_timeout_server: 50000
+haproxy_defaults_balance: roundrobin
+haproxy_default_extras: []
+
+haproxy_servers: []

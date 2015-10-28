@@ -1,0 +1,16 @@
+---
+- include: debian.yml
+  when: ansible_os_family == "Debian"
+
+- name: ensure haproxy is installed
+  sudo: yes
+  apt: name=haproxy
+  tags: haproxy
+
+- name: ensure haproxy config is up-to-date
+  sudo: yes
+  template: src=haproxy.cfg.j2 dest=/etc/haproxy/haproxy.cfg
+  notify:
+    - reload haproxy
+    - restart rsyslog
+  tags: haproxy
